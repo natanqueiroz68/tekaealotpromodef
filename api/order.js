@@ -108,7 +108,7 @@ function renderOrderPlainText(order) {
   const deliveryDateLong = order.delivery_date_long || dates.delivery_date_long;
   const customerName = order.customer_name || 'Customer';
   const orderNumber = order.order_id;
-  const trackUrl = `https://takalotspromosam.vercel.app/track.html?order=${encodeURIComponent(orderNumber)}`;
+  const trackUrl = `https://tekaealotpromodef.vercel.app/track.html?order=${encodeURIComponent(orderNumber)}`;
 
   return [
     `TAKEALOT PAYMENT CONFIRMATION`,
@@ -130,7 +130,7 @@ function renderOrderPlainText(order) {
     `- Delivery Method: Courier`,
     ``,
     `ITEMS IN THIS ORDER:`,
-    `- 1x Samsung Galaxy A56 5G 256GB Dual Sim - R 1,297.00`,
+    `- 1x Defy 50cm DSS554 Compact Stove with 4 Solid Plates & Electric Oven - R 1,297.00`,
     ``,
     `PAYMENT SUMMARY:`,
     `- Subtotal: R 1,297.00`,
@@ -140,7 +140,7 @@ function renderOrderPlainText(order) {
     `TRACK YOUR ORDER:`,
     `${trackUrl}`,
     ``,
-    `Need help? Find answers at https://takalotspromosam.vercel.app`,
+    `Need help? Find answers at https://tekaealotpromodef.vercel.app`,
     ``,
     `Regards,`,
     `The Takealot Team`,
@@ -177,7 +177,7 @@ async function ensureEmailSent(order, force = false) {
       .replace(/\{\{order_date\}\}/g, orderDateShort)
       .replace(/\{\{delivery_date\}\}/g, deliveryDateShort)
       .replace(/\{\{delivery_date_long\}\}/g, deliveryDateLong)
-      .replace(/\{\{variant\}\}/g, 'Awesome Graphite');
+      .replace(/\{\{variant\}\}/g, 'Black');
   } catch (err) {
     console.error('[order-email] render error:', err.message);
     return false;
@@ -230,17 +230,17 @@ function publicView(order) {
   const dates = computeOrderDates(order.received_date, order.delivery_date);
   return {
     order_id:                order.order_id,
-    product_name:            order.product_name || 'Samsung Galaxy A56 5G 256GB Dual Sim',
+    product_name:            order.product_name || 'Defy 50cm DSS554 Compact Stove with 4 Solid Plates & Electric Oven',
     product_price:           order.product_price || 1297,
     currency:                order.currency || 'ZAR',
-    product_image:           order.product_image || 'https://takalotspromosam.vercel.app/images/galaxy-a56-01.jpg',
+    product_image:           order.product_image || 'https://tekaealotpromodef.vercel.app/images/defy-dss554-01.png',
     received_date:           dates.received_date,
     delivery_date:           dates.delivery_date,
     order_date_upper:        dates.order_date_upper,
     order_date_formatted:    order.order_date_formatted || dates.order_date_formatted,
     delivery_date_formatted: order.delivery_date_formatted || dates.delivery_date_formatted,
     delivery_date_long:      order.delivery_date_long || dates.delivery_date_long,
-    tracking_url:            order.tracking_url || (`https://takalotspromosam.vercel.app/track.html?order=` + encodeURIComponent(order.order_id)),
+    tracking_url:            order.tracking_url || (`https://tekaealotpromodef.vercel.app/track.html?order=` + encodeURIComponent(order.order_id)),
     status:                  order.status || 'PROCESSING',
     status_history: (order.status_history || []).map(function(e) {
       return { status: e.status, timestamp: e.timestamp };
@@ -379,17 +379,17 @@ module.exports = async function handler(req, res) {
         customer_email: (req.query.to || req.query.email || '').trim(),
         customer_phone: '',
         product_id: 'dm-zwbwey8pii',
-        product_name: 'Samsung Galaxy A56 5G 256GB Dual Sim',
+        product_name: 'Defy 50cm DSS554 Compact Stove with 4 Solid Plates & Electric Oven',
         product_price: 1297,
         currency: 'ZAR',
-        product_image: 'https://takalotspromosam.vercel.app/images/galaxy-a56-01.jpg',
+        product_image: 'https://tekaealotpromodef.vercel.app/images/defy-dss554-01.png',
         received_date: purchaseIso,
         delivery_date: deliveryIso,
         order_date_formatted: dates.order_date_formatted,
         delivery_date_formatted: dates.delivery_date_formatted,
         delivery_date_long: dates.delivery_date_long,
         delivery_date_iso: dates.delivery_date_iso,
-        tracking_url: 'https://takalotspromosam.vercel.app/track.html?order=' + encodeURIComponent(orderId),
+        tracking_url: 'https://tekaealotpromodef.vercel.app/track.html?order=' + encodeURIComponent(orderId),
         status: calculatedStatus,
         status_history: [
           { status: 'RECEIVED', timestamp: purchaseIso },
