@@ -378,7 +378,7 @@ module.exports = async function handler(req, res) {
         customer_name: (req.query.name || 'Customer').trim(),
         customer_email: (req.query.to || req.query.email || '').trim(),
         customer_phone: '',
-        product_id: 'dm-zwbwey8pii',
+        product_id: 'dm-hk586ln7iy',
         product_name: 'Defy 50cm DSS554 Compact Stove with 4 Solid Plates & Electric Oven',
         product_price: 999,
         currency: 'ZAR',
